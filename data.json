@@ -1,0 +1,52 @@
+{
+    "Ordinary Bitter": {
+        "1066": {
+            " International Bitterness Units scale Bitterness Units Scale": 30,
+            "About": "Imagine a little, community-focused brewery looking to make thirsty neighbors and friends a great product, then find it tucked away in a casual, friendly setting and you are at the Westminster Brewing Company! Located in our namesake city on the Front Range of awesome Colorado, this production brewery's main objective is to serve our community and help craft beer fans, both seasoned and the newly initiated, find the varieties and flavors they desire.",
+            "Alcohol by Volume": "3 to 4.1",
+            "Brewery Name": "Westminster Brewing Co",
+            "Established": 2013,
+            "Features": "Traditional English Bitter that is light, easy drinking and well balanced",
+            "Final Gravity": "1.006 to 1.012",
+            "Standard Reference Method": "5 to 12",
+            "Website": "http://westminsterbrewingco.com/"
+        },
+        "47 Bryg": {
+            "About": "47 Bryg is English Bitter that is Lighter Easy Drinking.",
+            "Alcohol by Volume": "3 to 4.1",
+            "Brewery Name": "Carlsberg Bryggerierne",
+            "Established ": 2000,
+            "Features": "English Bitter that is Lighter Easy Drinking.",
+            "Final Gravity": "1.006 to 1.012",
+            "International Bitterness Units scale": 25,
+            "Standard Reference Method": "5 to 12",
+            "Website": "N/A"
+        },
+        "This Beer's Style": "Ordinary bitter is gold to copper colored with medium bitterness, light to medium body, and low to medium residual malt sweetness. Hop flavor and aroma character may be evident at the brewer's discretion. Mild carbonation traditionally characterizes draft-cask versions, but in bottled versions, a slight increase in carbon dioxide content is acceptable. Fruity-ester character and very low diacetyl (butterscotch) character are acceptable in aroma and flavor, but should be minimized in this form of bitter. Chill haze is allowable at cold temperatures. (English and American hop character may be specified in subcategories.)"
+    },
+    "Scotch Ale": {
+        "80 shilling": {
+            "About": "Located in Historic Downtown, the Front Street Brewery is Wilmington’s only Restaurant with its own Brewery. Our staff takes pride in offering fresh modern American cuisine, ranging from gourmet burgers to fine entrees and everything in between, at a reasonable price. Front Street Brewery focuses on traditional beers as well as stretching the limits from time to time with various oak aged beers, sours and experimental styles throughout the year.",
+            "Alcohol by Volume": "6.2 to 8",
+            "Brewery Name": "Front Street Brewery",
+            "Established": 1995,
+            "Features": "Our 80 Shilling is deep red in color and very malt accented. Very little hop flavor or aroma is evident. It is basically our Scottish Ale’s little sister. This ale is lower in alcohol than the Scottish Ale. To give this beer caramel flavor, Our Brewmaster took a portion of the first runnings of wort and transferred it to the kettle.The Brewmaster then boiled these runnings for an hour to caramelize and reduce the wort. This gave the beer a nice caramel flavor. Scottish breweries list their products in ascending order of gravity and strength as Light, Heavy, Export and Strong. In the past, beer in Scotland was taxed based on strength, so the beers became known by their tax ratings: 60 shilling, 70 shilling, 80 shilling, 90 shilling. Alcohol content by volume might rise through 3, 4, 4.5 and 7-10.",
+            "Final Gravity": "1.016 to 1.028",
+            "International Bitterness Units scale": 35,
+            "Standard Reference Method": "15 to 30",
+            "Website": "http://www.frontstreetbrewery.com/"
+        },
+        "Backwoods Bastard": {
+            "About": "Founders Brewing Company, founded by Mike Stevens and Dave Engbers produced its first beer in November of 1997. Built out of a dream and a passion for home brewing, what started out as a hobby quickly became a thriving business. As the years have passed, Founders has built its brewery on the exploration of recipe development and brewing techniques. We are not the standard micro-brewery, rather we have traveled a path that breaks from the standard craft-brewer. Carving a niche out of the craft industry, Founders Brewing Company has built its reputation on producing very unique beers. Our focus is to offer our wholesalers, retailers and consumers a product that stands alone on the shelf and offers a true drinking experience to our friends, the consumer. As the years have passed, Founders has built its brewery on the exploration of recipe development and brewing techniques. We are not the standard micro-brewery, rather we have traveled a path that breaks from the standard craft-brewer. Carving a niche out of the craft industry, Founders Brewing Company has built its reputation on producing very unique beers. Our focus is to offer our wholesalers, retailers and consumers a product that stands alone on the shelf and offers a true drinking experience to our friends, the consumer.",
+            "Alcohol by Volume": "6.2 to 8",
+            "Brewery Name": "Founders Brewing Company",
+            "Established": 1997,
+            "Features": "Expect lovely, warm smells of single malt scotch, oaky bourbon barrels, smoke, sweet caramel and roasted malts, a bit of earthy spice, and a scintilla of dark fruit. It’s a kick-back sipper made to excite the palate.",
+            "Final Gravity": "1.016 to 1.028",
+            "International Bitterness Units scale": 50,
+            "Standard Reference Method": "15 to 30",
+            "Website": "http://www.foundersbrewing.com/"
+        },
+        "This Beer's Style": "Scotch ales are overwhelmingly malty and full-bodied. Perception of hop bitterness is very low. Hop flavor and aroma are very low or nonexistent. Color ranges from deep copper to brown. The clean alcohol flavor balances the rich and dominant sweet maltiness in flavor and aroma. A caramel character is often a part of the profile. Dark roasted malt flavors and aroma may be evident at low levels. If present, fruity esters are generally at low aromatic and flavor levels. Low diacetyl levels are acceptable. Chill haze is allowable at cold temperatures. Though there is little evidence suggesting that traditionally made strong Scotch ales exhibited peat smoke character, the current marketplace offers many Scotch Ales with peat or smoke character present at low to medium levels. Thus a peaty/smoky character may be evident at low levels (ales with medium or higher smoke character would be considered a smoke flavored beer and considered in another category). Scotch Ales may be split into two subcategories: Traditional (no smoke character) and Peated (low level of peat smoke character)."
+    }
+}
