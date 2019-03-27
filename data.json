@@ -1,0 +1,59 @@
+{
+   "data": [
+    "category_name1"
+        {
+            "company_name1"
+            {
+                "features"
+                "IBUS"
+                "AV"
+                "FG"
+                "SRM"
+                "BN"
+                "ABOUT"
+                "Website"
+                "establised"
+            }
+            "company_name2"
+            {
+                "features"
+                "IBUS"
+                "AV"
+                "FG"
+                "SRM"
+                "BN"
+                "ABOUT"
+                "Website"
+                "establised"
+        }
+        },
+        "category_name2"
+        {
+            "company_name1"
+            [
+                "features"
+                "IBUS"
+                "AV"
+                "FG"
+                "SRM"
+                "BN"
+                "ABOUT"
+                "Website"
+                "establised"
+            ]
+            "company_name2"
+            [
+                "features"
+                "IBUS"
+                "AV"
+                "FG"
+                "SRM"
+                "BN"
+                "ABOUT"
+                "Website"
+                "establised"
+            ]
+        }
+    
+]
+}
