@@ -1,0 +1,20 @@
+.Pic{
+    width: 200px;
+    height: 200px;
+}
+.card{
+    margin-top: 1%;
+margin-left: 18%;
+border: solid;
+}
+.row Details{
+    word-wrap: break-word;
+}
+.card{
+    padding-left: 2%;
+    width: 65%;
+    
+}
+.fa{
+    font-size: 450%;
+}
