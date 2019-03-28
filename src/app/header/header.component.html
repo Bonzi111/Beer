@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Beers For All</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Settings</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">ADD New Beer</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" (click)="sidebar()" class="btn btn-info navbar-btn">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                    </button>
+                    <a class="navbar-brand" href="#"><b>Beers For All</b></a>
+                </div>
+                <div class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
+                    <a href="#">Home</a>&nbsp;&nbsp;
+                    <a href="#">Settings</a>&nbsp;&nbsp;
+                    <a href="#">About</a>&nbsp;&nbsp;
+                    <a href="#">Liked</a>&nbsp;&nbsp;
+                    <a href="#">Sign Up|Login</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero_image">
+        <img class="image_properties"
+            src="https://images.unsplash.com/photo-1518176258769-f227c798150e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80">
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar, #content').toggleClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
