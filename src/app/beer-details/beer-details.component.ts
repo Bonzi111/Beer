@@ -3,11 +3,11 @@ import { DataDetailService } from '../data-detail.service';
 
 
 @Component({
-  selector: 'app-last-page',
-  templateUrl: './last-page.component.html',
-  styleUrls: ['./last-page.component.css']
+  selector: 'app-beer-details',
+  templateUrl: './beer-details.component.html',
+  styleUrls: ['./beer-details.component.css']
 })
-export class LastPageComponent implements OnInit {
+export class BeerDetailsComponent implements OnInit {
   public url;
   public url_list;
   public id;
@@ -16,19 +16,22 @@ export class LastPageComponent implements OnInit {
   public key_value;
   public values;
   public db_data;
-  constructor(private new_obj:DataDetailService) {
-    this.new_obj.getData().subscribe((data)=>{
+  constructor(private ser_obj: DataDetailService) {
+    this.ser_obj.getData().subscribe((data)=>{
       this.db_data=data;
       this.key_value=Object.keys(this.db_data);
       this.values=Object.values(this.db_data);
+      this.new_category = this.values[0];
       this.new_details = this.values[1];
     });
    }
 
   ngOnInit() {
     this.url=window.location.href;
-    this.url_list=this.url.split('beer-features/')
+    this.url_list=this.url.split('beer-details/')
     this.id=this.url_list[1];
+
   }
+
 
 }

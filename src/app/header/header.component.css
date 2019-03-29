@@ -1,5 +1,4 @@
 
-
 .navbar {
     padding: 15px 10px;
     background: transparent;
@@ -47,8 +46,7 @@
     width: 100%
 }
 .image_properties{
-    height: 500px;
-    width: 1600px;
+    width: 100%;
 }
 /* ---------------------------------------------------
     MEDIAQUERIES

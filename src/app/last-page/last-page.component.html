@@ -1,3 +1,5 @@
+<div *ngFor="let obj of new_details">
+  <div *ngIf="obj['company_id']==id">
 <div class="card">
   <div class="row">
     <div class="col-md-3">
@@ -9,8 +11,7 @@
     <div class="col-md-9">
       <div class="row Details">
         <p>Features</p>
-        <p>This classic British Extra Special Bitter utilizes all British ingredients including Marris Otter Malt for a
-          slightly malty and nutty finish.</p>
+        <p>{{obj.features}}</p>
       </div>
     </div>
 
@@ -29,7 +30,7 @@
     </div>
     <div class="col-md-9">
       <p>International Bitterness Units scale</p>
-      <p>37</p>
+      <p>{{obj.IBUS}}</p>
       <hr>
     </div>
   </div>
@@ -41,7 +42,7 @@
     </div>
     <div class="col-md-9">
       <p>Alcohol by Volume</p>
-      <p>4.5 to 5.5</p>
+      <p>{{obj.AV}}</p>
       <hr>
     </div>
   </div>
@@ -53,7 +54,7 @@
     </div>
     <div class="col-md-9">
       <p>Final Gravity</p>
-      <p>1.008 to 1.016</p>
+      <p>{{obj.FG}}</p>
       <hr>
     </div>
   </div>
@@ -65,7 +66,7 @@
       </div>
       <div class="col-md-9">
         <p>Standard Reference Method</p>
-        <p>5 to 5</p>
+        <p>{{obj.SRM}}</p>
         <hr>
       </div>
     </div>
@@ -83,7 +84,7 @@
       </div>
       <div class="col-md-9">
         <p>Brewery Name</p>
-        <p>The Phoenix Brewing Company</p>
+        <p>{{obj.BN}}</p>
         <hr>
       </div>
     </div>
@@ -95,7 +96,7 @@
       </div>
       <div class="col-md-9">
         <p>About</p>
-        <p>The Phoenix opened in in April 2014 and features our handcrafted beers along with regional beers, wines and spirits in our restored 1914 mortuary.</p>
+        <p>{{obj.About}}</p>
         <hr>
       </div>
     </div>
@@ -105,9 +106,9 @@
             <i class="fa fa-html5" aria-hidden="true"></i>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="website col-md-9">
         <p>Website</p>
-        <p>http://phoenixbrewing.com/</p>
+        <p>{{obj.website}}</p>
         <hr>
       </div>
     </div>
@@ -119,11 +120,15 @@
         </div>
         <div class="col-md-9">
           <p>Established</p>
-          <p>2014</p>
+          <p>{{obj.established}}</p>
           <hr>
         </div>
       </div>
   
   </div>
-  <button>RETURN TO BEER COMPANIES</button>
-  
+</div>
+</div>
+<div class="space">
+<span> <button type="button" routerLink="/cards" class="return_btn">RETURN TO BEER COMPANIES</button></span>
+<span><button type="button" class="return_btn">Like</button></span>
+</div>
