@@ -8,25 +8,28 @@ import { DataDetailService } from '../data-detail.service';
   styleUrls: ['./beer-details.component.css']
 })
 export class BeerDetailsComponent implements OnInit {
-  public new_cat;
-  public new_company_details;
-  public keys;
   public url;
   public url_list;
   public id;
   public new_details;
   public new_category;
-  constructor(private ser_obj: DataDetailService) { }
+  public key_value;
+  public values;
+  public db_data;
+  constructor(private ser_obj: DataDetailService) {
+    this.ser_obj.getData().subscribe((data)=>{
+      this.db_data=data;
+      this.key_value=Object.keys(this.db_data);
+      this.values=Object.values(this.db_data);
+      this.new_category = this.values[0];
+      this.new_details = this.values[1];
+    });
+   }
 
   ngOnInit() {
-    this.new_cat = this.ser_obj.cat;
-    this.keys = Object.keys(this.new_cat[0]);
-    this.new_company_details = this.ser_obj.company_details;
     this.url=window.location.href;
     this.url_list=this.url.split('beer-details/')
     this.id=this.url_list[1];
-    this.new_details=this.ser_obj.company_details;
-    this.new_category=this.ser_obj.cat;
 
   }
 

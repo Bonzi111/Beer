@@ -1,4 +1,4 @@
-<div *ngFor="let obj of company_data">
+<div *ngFor="let obj of new_details">
   <div *ngIf="obj['company_id']==id">
 <div class="card">
   <div class="row">
@@ -128,4 +128,7 @@
   </div>
 </div>
 </div>
-  <button>RETURN TO BEER COMPANIES</button>
+<div class="space">
+ <span> <button type="button" routerLink="/cards" class="return_btn">RETURN TO BEER COMPANIES</button></span>
+ <span><button type="button" (click)="like()" class="return_btn">Like</button></span>
+</div>

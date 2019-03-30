@@ -3,11 +3,12 @@
       <h1>This Beer's Style</h1>
       <h4 class="text">{{ob.beerstyle}}</h4>
   </div>
-</div>
+</div> 
+<div class="row">
 <div *ngFor="let object of new_details;">
   <div *ngIf="object['cat_id']==id">
 
-    <div class="card column">
+    <div class="card column col-sm-12 col-md-5">
       <img src={{object.image}} alt="Avatar" style="width:100%">
       <div class="container">
         <h4><b>{{object.company}}</b></h4>
@@ -15,4 +16,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
