@@ -7,26 +7,28 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
+private check :boolean;
   constructor() {
   }
   reactiveForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('',[Validators.required,Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]),
-    SRM_max: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-    SRM_min: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-    FG_max: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-    FG_min: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-    AV_max: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-    AV_min: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
-
-    beer_style: new FormControl('', Validators.required),
-    beer_company: new FormControl('', Validators.required),
+    AV: new FormControl('', [Validators.required,Validators.min(0), Validators.max(100)]),
+    about:new FormControl('',Validators.required),
+    BN: new FormControl('',Validators.required),
+    FG: new FormControl('', [Validators.required,Validators.min(0), Validators.max(100)]),
+    IBUS: new FormControl('', [Validators.required,Validators.min(0), Validators.max(100)]),
+    SRM:new FormControl('', [Validators.required,Validators.min(0), Validators.max(100)]),
+    cat_id: new FormControl('', Validators.required),
+    company: new FormControl('', Validators.required),
+    established:new FormControl('',Validators.required),
     features: new FormControl('', Validators.required),
-    IBUS: new FormControl('', Validators.required),
-    BN: new FormControl('', Validators.required),
-   
+    website:new FormControl('',Validators.required),   
   });
+  hide(err){
+    this.check =true;
+    if(){
+      
+    }
+  }
   ngOnInit() {
   }
   get f() {
