@@ -1,33 +1,48 @@
-<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" class="body">
+<form [formGroup]="reactiveForm">
+
   <div>
-    <label>Beer Style
-      <select name="beer_style_list" formControlName="beer_style">
-        <option value="">Beer Style</option>
-        <option value="Classic English-Style Pale Ale">Classic English-Style Pale Ale</option>
-        <option value="Ordinary Bitter">Ordinary Bitter</option>
-        <option value="Scotch Ale">Scotch Ale</option>
-      </select>
+    <label>AV:
+      <input type="text" formControlName="AV" class="hide(f.AV.errors)">
     </label>
-    <div *ngIf="f.beer_style.errors" class="alert alert-danger">
-      <p *ngIf="f.beer_style.errors.required">!!Beer Style Required!!</p>
+    <div *ngIf="f.AV.errors" class="alert alert-danger">
+      <p *ngIf="f.AV.errors.required">!!Alcohol by Volume Required!!</p>
+      <p *ngIf="f.AV.errors.minlength ">!!Alcohol by Volume min value is 0!!</p>
+      <p *ngIf="f.AV.errors.maxlength ">!!Alcohol by Volume max value is 100!!</p>
     </div>
   </div>
+
   <div>
-    <label>Beer Company:
-      <input type="text" formControlName="beer_company">
+    <label>About:
+      <input type="text" fromControlName="about">
     </label>
-    <div *ngIf="f.beer_company.errors" class="alert alert-danger">
-      <p *ngIf="f.beer_company.errors.required">!!Beer Company Name Required!!</p>
+    <div *ngIf="f.about.errors" class="alert alert-danger">
+      <p *ngIf="f.about.errors.required">!!Alcohol by Volume Required!!</p>
     </div>
   </div>
+
+
   <div>
-    <label>Features:
-      <input type="textbox" formControlName="features">
+    <label>BN:
+      <input type="text" formControlName="BN">
     </label>
-    <div *ngIf="f.features.errors" class="alert alert-danger">
-      <p *ngIf="f.features.errors.required">!!Features Required!!</p>
+    <div *ngIf="f.BN.errors" class="alert alert-danger">
+      <p *ngIf="f.BN.errors.required">!!Alcohol by Volume Required!!</p>
     </div>
   </div>
+
+  <div>
+    <label>Final Gravity
+      <input type="text" formControlName="FG">
+    </label>
+    <div *ngIf="f.FG.errors" class="alert alert-danger">
+      <p *ngIf="f.FG.errors.required">!!Final Gravity Required!!</p>
+      <p *ngIf="f.FG.errors.minlength ">!!Final Gravity min value is 0!!</p>
+      <p *ngIf="f.FG.errors.maxlength ">!!Final Gravity max value is 100!!</p>
+    </div>
+  </div>
+  
+
+
   <div>
     <label>International Bitterness Units scale:
       <input type="text" formControlName="IBUS">
@@ -38,93 +53,70 @@
       <p *ngIf="f.IBUS.errors.maxlength ">!!International Bitterness Units scale max value is 100!!</p>
     </div>
   </div>
-  <p>Alcohol by Volume</p>
+
   <div>
-    <label>From:
-      <input type="text" formControlName="AV_min">
+    <label>SRM:
+      <input type="text" formControlName="SRM">
     </label>
-    <div *ngIf="f.AV_min.errors" class="alert alert-danger">
-      <p *ngIf="f.AV_min.errors.required">!!Alcohol by Volume Required!!</p>
-      <p *ngIf="f.AV_min.errors.minlength ">!!Alcohol by Volume min value is 0!!</p>
-      <p *ngIf="f.AV_min.errors.maxlength ">!!Alcohol by Volume max value is 100!!</p>
+    <div *ngIf="f.SRM.errors" class="alert alert-danger">
+      <p *ngIf="f.SRM.errors.required">!!Alcohol by Volume Required!!</p>
+      <p *ngIf="f.SRM.errors.minlength ">!!Alcohol by Volume min value is 0!!</p>
+      <p *ngIf="f.SRM.errors.maxlength ">!!Alcohol by Volume max value is 100!!</p>
     </div>
   </div>
+
   <div>
-    <label>To:
-      <input type="text" fromControlName="AV_max">
+    <label>Beer Category
+      <select name="beer_style_list" formControlName="cat_id">
+        <option value="">Beer Style</option>
+        <option value="Classic English-Style Pale Ale">Classic English-Style Pale Ale</option>
+        <option value="Ordinary Bitter">Ordinary Bitter</option>
+        <option value="Scotch Ale">Scotch Ale</option>
+      </select>
     </label>
-    <div *ngIf="f.AV_max.errors" class="alert alert-danger">
-      <p *ngIf="f.AV_max.errors.required">!!Alcohol by Volume Required!!</p>
-      <p *ngIf="f.AV_max.errors.minlength ">!!Alcohol by Volume min value is 0!!</p>
-      <p *ngIf="f.AV_max.errors.maxlength ">!!Alcohol by Volume max value is 100!!</p>
+    <div *ngIf="f.cat_id.errors" class="alert alert-danger">
+      <p *ngIf="f.cat_id.errors.required">!!Beer Style Required!!</p>
     </div>
   </div>
-  <p>Final Gravity</p>
+
   <div>
-    <label>From:
-      <input type="text" formControlName="FG_min">
+    <label>Beer Company:
+      <input type="text" formControlName="company">
     </label>
-    <div *ngIf="f.FG_min.errors" class="alert alert-danger">
-      <p *ngIf="f.FG_min.errors.required">!!Final Gravity Required!!</p>
-      <p *ngIf="f.FG_min.errors.minlength ">!!Final Gravity min value is 0!!</p>
-      <p *ngIf="f.FG_min.errors.maxlength ">!!Final Gravity max value is 100!!</p>
+    <div *ngIf="f.company.errors" class="alert alert-danger">
+      <p *ngIf="f.company.errors.required">!!Beer Company Name Required!!</p>
     </div>
   </div>
-  <div>
-    <label>To:
-      <input type="text" fromControlName="FG_max">
-    </label>
-    <div *ngIf="f.FG_max.errors" class="alert alert-danger">
-      <p *ngIf="f.FG_max.errors.required">!!Final Gravity Required!!</p>
-      <p *ngIf="f.FG_max.errors.minlength ">!!Final Gravity min value is 0!!</p>
-      <p *ngIf="f.FG_max.errors.maxlength ">!!Final Gravity max value is 100!!</p>
-    </div>
-  </div>
-  <p>Standard Reference Method</p>
-  <div>
-    <label>From:
-      <input type="text" formControlName="SRM_min">
-    </label>
-    <div *ngIf="f.SRM_min.errors" class="alert alert-danger">
-      <p *ngIf="f.SRM_min.errors.required">!!Standard Reference Method Required!!</p>
-      <p *ngIf="f.SRM_min.errors.minlength ">!!Standard Reference Method min value is 0!!</p>
-      <p *ngIf="f.SRM_min.errors.maxlength ">!!Standard Reference Method max value is 100!!</p>
-    </div>
-  </div>
-  <div>
-    <label>To:
-      <input type="text" fromControlName="SRM_max">
-    </label>
-    <div *ngIf="f.SRM_max.errors" class="alert alert-danger">
-      <p *ngIf="f.SRM_max.errors.required">!!Standard Reference Method Required!!</p>
-      <p *ngIf="f.SRM_max.errors.minlength ">!!Standard Reference Method min value is 0!!</p>
-      <p *ngIf="f.SRM_max.errors.maxlength ">!!Standard Reference Method max value is 100!!</p>
-    </div>
-  </div>
-  <div>
-    <label>Brewery Name:
-      <input type="text" fromControlName="BN">
-    </label>
-    <div *ngIf="f.BN.errors" class="alert alert-danger">
-      <p *ngIf="f.BN.errors.required">!!Brewery Name Required!!</p>
-    </div>
-  </div>
-  <div>
-    <label>About:
-      <input type="text" fromControlName="about">
-    </label>
-  </div>
-  <div>
-    <label>Website:
-      <input type="text" fromControlName="website">
-    </label>
-  </div>
+
   <div>
     <label>Established:
       <input type="text" fromComtrolName="established">
     </label>
-  </div>
-  <div>
-      <button type="submit" [disabled]="!reactiveForm.valid">Add a Beer</button>
+    <div *ngIf="f.established.errors" class="alert alert-danger">
+      <p *ngIf="f.established.errors.required">!!Alcohol by Volume Required!!</p>
     </div>
+  </div>
+
+    <div>
+      <label>Features:
+        <input type="text" formControlName="features">
+      </label>
+      <div *ngIf="f.features.errors" class="alert alert-danger">
+        <p *ngIf="f.features.errors.required">!!Features Required!!</p>
+      </div>
+    </div>
+
+
+    <div>
+      <label>Website:
+        <input type="text" fromControlName="website">
+      </label>
+      <div *ngIf="f.website.errors" class="alert alert-danger">
+        <p *ngIf="f.website.errors.required">!!Alcohol by Volume Required!!</p>
+      </div>
+    </div>
+
+    <div>
+    <button type="button" (click)="onSubmit()">Add a Beer</button>
+  </div>
 </form>
