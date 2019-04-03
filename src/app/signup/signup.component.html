@@ -1,42 +1,22 @@
-<div class="container-fluid">
-    <h2>Signup Form</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>UserName</label>
-        <input formControlName="userName" type="text" class="form-control">
-        <div *ngIf="values.userName.errors" class="alert alert-danger">
-          <small class="text-danger" *ngIf="values.userName.errors.required">Required!</small>
+<div class="contanier">
+  <div *ngIf="!(authService.user | async)">
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Email
+            <input type="text" [(ngModel)]="email" placeholder="email">
+          </label>
+          <br /><br />
+          <div class="alert alert-danger" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+            Correct Email ID Required!!
+          </div>
+          <label>Password
+            <input type="password" [(ngModel)]="password" placeholder="password">
+          </label>
+          <br /><br />
+          <button (click)="signup()" [disabled]="!email || !password">
+            Signup
+          </button>
         </div>
       </div>
-    
-      <div class="form-group">
-        <label>Email</label>
-        <input formControlName="email" type="text" class="form-control">
-        <div *ngIf="values.email.errors" class="alert alert-danger">
-          <small class="text-danger" *ngIf="values.email.errors.required">Required!</small>
-          <small class="text-danger" *ngIf="values.email.errors.pattern">Invalid Pattern</small>
-        </div>
-      </div>
-     
-      <div class="form-group">
-        <label>Password</label>
-        <input formControlName="password" type="password" class="form-control">
-        <div *ngIf="values.password.errors" class="alert alert-danger">
-            <small class="text-danger" *ngIf="values.password.errors.required">Required!</small>
-          </div>
-      </div>
-      
-      <div class="form-group">
-        <label>Confirm Password</label>
-        <input formControlName="confirmPassword" type="password" class="form-control">
-        <div *ngIf="values.confirmPassword.errors" class="alert alert-danger">
-            <small class="text-danger" *ngIf="values.confirmPassword.errors.required">Required!</small>
-          </div>
-      </div>
-    
-      <button class="btn btn-primary" type="submit">SignUp</button>
-    </form>
-    <!-- {{registrationForm.value | json}} -->
-    </div>
-    
-    
+  </div>
+</div>

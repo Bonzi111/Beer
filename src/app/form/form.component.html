@@ -1,0 +1,89 @@
+
+<div class="container">
+  <form [formGroup]='rForm'>
+
+    <div class="form-container">
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Beer Category
+            <select formControlName="cat_id">
+              <option value="">Beer Style</option>
+              <option value="Classic English-Style Pale Ale">Classic English-Style Pale Ale</option>
+              <option value="Ordinary Bitter">Ordinary Bitter</option>
+              <option value="Scotch Ale">Scotch Ale</option>
+            </select>
+          </label>
+          <br /><br />
+          <div class="alert alert-danger"
+            *ngIf="!rForm.controls['cat_id'].valid && rForm.controls['cat_id'].touched">Beer Category Required!!</div>
+          <label>Beer Comapny
+            <input type="text" formControlName="company">
+          </label>
+          <br /><br />
+          <div class="alert alert-danger" *ngIf="!rForm.controls['company'].valid && rForm.controls['company'].touched">
+              Beer Comapny Required!!</div>
+          <label>Features
+            <input type="text" formControlName="features">
+          </label>
+          <br /><br />
+          <div class="alert alert-danger"
+            *ngIf="!rForm.controls['features'].valid && rForm.controls['features'].touched">
+            Features Required!!</div>
+
+          <label>International Bitterness Units scale
+            <input type="text" formControlName="IBUS">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['IBUS'].valid && rForm.controls['IBUS'].touched">
+              International Bitterness Units scale Required!!</div>
+          <br /><br />
+          <label>Alcohol by Volume
+            <input type="text" formControlName="AV">
+            <div class="alert alert-danger" *ngIf="!rForm.controls['AV'].valid && rForm.controls['AV'].touched">Alcohol by Volume Required!!</div>
+          </label>
+          <br /><br />
+          <label>Final Gravity
+            <input type="text" formControlName="FG">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['FG'].valid && rForm.controls['FG'].touched">Final Gravity Required!!
+          </div>
+          <br /><br />
+          <label>Standard Reference Method
+            <input type="text" formControlName="SRM">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['SRM'].valid && rForm.controls['SRM'].touched">Standard Reference Method Required!!
+          </div>
+          <br /><br />
+          <label>Brewery Name
+            <input type="text" formControlName="BN">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['BN'].valid && rForm.controls['BN'].touched">Brewery Name Required!!
+          </div>
+          <br /><br />
+          <label>About
+            <input type="text" formControlName="about">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['about'].valid && rForm.controls['about'].touched">
+              About Required!!
+          </div>
+          <br /><br />
+          <label>Website
+            <input type="text" formControlName="website">
+          </label>
+          <div class="alert alert-danger" *ngIf="!rForm.controls['website'].valid && rForm.controls['website'].touched">
+              Website Required!!
+          </div>
+          <br /><br />
+          <label>Established
+            <input type="text" formControlName="established">
+          </label>
+          <div class="alert alert-danger"
+            *ngIf="!rForm.controls['established'].valid && rForm.controls['established'].touched">Established Required!!
+          </div>
+          <br /><br />
+          <input type="submit" class="button expanded" (click)="onSubmit()" value="Add a Beer" [disabled]="!rForm.valid">
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
