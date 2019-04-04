@@ -6,7 +6,7 @@
 </div> 
 <div class="row">
 <div *ngFor="let object of new_details;">
-  <div *ngIf="object['cat_id']==id">
+  <div *ngIf="object.cat_id==id">
 
     <div class="card column col-sm-12 col-md-5">
       <img src={{object.image}} alt="Avatar" style="width:100%">

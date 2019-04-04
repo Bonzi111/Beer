@@ -7,15 +7,16 @@ import {SignupComponent} from './signup/signup.component';
 import {LoginComponent} from './login/login.component';
 import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
 import {FormComponent} from './form/form.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path:'form_page', component:FormComponent},
-  {path:'cart_page', component:AddToCartComponent},
+  {path:'form_page', component:FormComponent,canActivate:[AuthGuard] },
+  {path:'cart_page', component:AddToCartComponent,canActivate:[AuthGuard]},
   {path:'login_page', component:LoginComponent},
   {path:'signup_page', component:SignupComponent},
-  {path:'beer-features/:id', component:LastPageComponent},
-  {path:'beer-details/:id', component:BeerDetailsComponent},
-  {path:'cards', component:CardsComponent},
+  {path:'beer-features/:id', component:LastPageComponent, canActivate:[AuthGuard]},
+  {path:'beer-details/:id', component:BeerDetailsComponent, canActivate:[AuthGuard]},
+  {path:'cards', component:CardsComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'/login_page',pathMatch:'full'}
 ];
 

@@ -36,8 +36,7 @@
 ----------------------------------------------------- */
 #content {
     width: calc(100% - 250px);
-   
-    min-height: 100vh;
+    margin-bottom: 0%;
     transition: all 0.3s;
     position: absolute;
     top: 0;

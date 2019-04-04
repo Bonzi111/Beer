@@ -17,6 +17,7 @@ export class AppComponent {
       this.emp=data;
       this.keys=Object.keys(this.emp);
       this.values=Object.values(this.emp);
+  
       //console.log(this.keys);
       //console.log(this.values);
       //console.log(this.emp);
@@ -27,7 +28,9 @@ export class AppComponent {
     const userId = '5bx9x4pVVNWbhcHxRiKOulcXPcO2';
     this.messagingService.requestPermission(userId)
     this.messagingService.receiveMessage()
-    this.message = this.messagingService.currentMessage
+    this.message = this.messagingService.currentMessage;
+ 
   }
+  
 
 }

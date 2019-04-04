@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl,FormBuilder, Validators } from '@angular/forms';
 import { SignupService } from '../signup.service';
 import { DataDetailService } from '../data-detail.service';
 
@@ -18,25 +18,27 @@ public key_value;
 public values;
 public object={"AV":'',"About":'',"BN":'',"FG":'',"IBUS":'',"SRM":'',"cat_id":'',"company":'',"company_id":'',"established":'',"features":'',"image":'',"website":''}
 
-  constructor(private SignupService:SignupService, private data_obj:DataDetailService) {
+  rForm: FormGroup;
+  dbData;
+
+  constructor(fb: FormBuilder,private SignupService:SignupService, private data_obj:DataDetailService){
+    this.rForm = fb.group({
+      'cat_id': [null, Validators.required],
+      'company': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'IBUS': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'features': [null,[Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'AV': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'FG': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'SRM': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'BN': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'about': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'website': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'established': [null, [Validators.required,Validators.pattern("^[A-Za-z]+$")]],
+      'image':('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLYCLRKfnjfA81AO0Bo3hBeeyDBRXHM_lC7ebmvo6APIoEEElU8w'),
+    });
+
+
   }
-
-
-  reactiveForm = new FormGroup({
-    AV: new FormControl('', Validators.required),
-    about:new FormControl('beer',Validators.required),
-    BN: new FormControl('abc',Validators.required),
-    FG: new FormControl('', Validators.required),
-    IBUS: new FormControl('', Validators.required),
-    SRM:new FormControl('', Validators.required),
-    cat_id: new FormControl('', Validators.required),
-    company: new FormControl('', Validators.required),
-    company_id:new FormControl(''),
-    established:new FormControl('2000',Validators.required),
-    features: new FormControl('', Validators.required),
-    image:new FormControl('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLYCLRKfnjfA81AO0Bo3hBeeyDBRXHM_lC7ebmvo6APIoEEElU8w'),
-    website:new FormControl('beer',Validators.required),   
-  });
 
   ngOnInit() {
     this.data_obj.getData().subscribe((data)=>{
@@ -49,56 +51,75 @@ public object={"AV":'',"About":'',"BN":'',"FG":'',"IBUS":'',"SRM":'',"cat_id":''
       console.log("length of new details",this.new_details.length);
       this.length=this.new_details.length;
       console.log("length",this.length);
+
+      window.addEventListener('online', (event) => {
+        alert("get LocalS")
+        this.dbData = JSON.parse(localStorage.getItem('db_data'));
+        this.onSubmit();
+      })
+
     
   });
 
   }
 
   get f() {
-    return this.reactiveForm.controls;
+    return this.rForm.controls;
   }
 
   onSubmit() {
 
-    if(this.reactiveForm.value.cat_id === 'Classic English-Style Pale Ale')
+    if(this.rForm.value.cat_id === 'Classic English-Style Pale Ale')
     {
-      this.reactiveForm.value.cat_id= 1;
+      this.rForm.value.cat_id= 1;
     }
-    else if(this.reactiveForm.value.cat_id === 'Ordinary Bitter')
+    else if(this.rForm.value.cat_id === 'Ordinary Bitter')
     {
-      this.reactiveForm.value.cat_id= 2;
+      this.rForm.value.cat_id= 2;
     }
-    else if(this.reactiveForm.value.cat_id === 'Scotch Ale')
+    else if(this.rForm.value.cat_id === 'Scotch Ale')
     {
-      this.reactiveForm.value.cat_id= 3;
+      this.rForm.value.cat_id= 3;
     }
 
-    this.reactiveForm.value.company_id=this.length + 1;
+    this.rForm.value.company_id=this.length + 1;
 
-    this.object["AV"]=this.reactiveForm.value.AV;
-    this.object["BN"]=this.reactiveForm.value.BN;
-    this.object["FG"]=this.reactiveForm.value.FG;
-    this.object["IBUS"]=this.reactiveForm.value.IBUS;
-    this.object["SRM"]=this.reactiveForm.value.SRM;
-    this.object["About"]=this.reactiveForm.value.about;
-    this.object["cat_id"]=this.reactiveForm.value.cat_id;
-    this.object["company"]=this.reactiveForm.value.company;
-    this.object["company_id"]=this.reactiveForm.value.company_id;
-    this.object["established"]=this.reactiveForm.value.established;
-    this.object["features"]=this.reactiveForm.value.features;
-    this.object["image"]=this.reactiveForm.value.image;
-    this.object["website"]=this.reactiveForm.value.website;
+    this.object["AV"]=this.rForm.value.AV;
+    this.object["BN"]=this.rForm.value.BN;
+    this.object["FG"]=this.rForm.value.FG;
+    this.object["IBUS"]=this.rForm.value.IBUS;
+    this.object["SRM"]=this.rForm.value.SRM;
+    this.object["About"]=this.rForm.value.about;
+    this.object["cat_id"]=this.rForm.value.cat_id;
+    this.object["company"]=this.rForm.value.company;
+
+    this.object["company_id"]=this.rForm.value.company_id;
+    
+    this.object["established"]=this.rForm.value.established;
+    this.object["features"]=this.rForm.value.features;
+    this.object["image"]=this.rForm.value.image;
+    this.object["website"]=this.rForm.value.website;
     this.db_data['company_details'].push(this.object);
 
     //console.log(this.db_data);
-    alert("Submitted")
+    if(navigator.onLine) {
 
-    this.SignupService.addPost(this.db_data)
+    this.SignupService.addPost(this.db_data || this.dbData)
     .subscribe(
-      response => console.log('Success',response),
+
+      response => alert("submit in response"),
       error => console.log('Error',error)
+
     );
-    console.log(this.reactiveForm.value);
+    console.log(this.rForm.value); 
+    }
+     else {
+
+      localStorage.setItem('db_data', JSON.stringify(this.db_data));
+      alert('set LocalS!');
+
+    }
+    
   }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { SignupService } from '../signup.service';
 import {Router} from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,54 +11,58 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public user=[];
+  email: string;
+  password: string;
+
+
+  //public user=[];
 
   isEyeClose:boolean=true;
-  constructor(private fb: FormBuilder, private SignupService:SignupService,private router:Router) { }
-  loginForm = this.fb.group({
-    email:['',[Validators.required,Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]],
-    password:['',Validators.required]  
-  });
+
+  constructor(private fb: FormBuilder, private SignupService:SignupService,private router:Router,public authService: AuthService) { }
+  // loginForm = this.fb.group({
+  //   email:['',[Validators.required,Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)]],
+  //   password:['',Validators.required]  
+  // });
   
-  get values(){
-    return this.loginForm.controls;
-  }
+  // get values(){
+  //   return this.loginForm.controls;
+  // }
 
   ngOnInit() {
-    if(localStorage.getItem('isLoggedIn') === "true")
-    {     
-      this.router.navigate(['/cards'])
-    }
-    else
-    {
-      alert('LogIn First')
-      this.router.navigate(['/login_page'])
 
-    }
-    this.SignupService.getUsers().subscribe((data) => {
-      Object.keys(data).forEach((key) => {
-      this.user.push(data[key])
-    });
-    });
+    // this.SignupService.getUsers().subscribe((data) => {
+    //   Object.keys(data).forEach((key) => {
+    //   this.user.push(data[key])
+    // });
+    // });
     
   }
-
-  onSubmit()
-  {
-    console.log(this.loginForm.value)
-    this.user.forEach((key) => 
-    {
-      if(this.loginForm.value.email === key.email && this.loginForm.value.password === window.atob(key.password))
-      {
-        alert("LogIn Successful");
-         localStorage.setItem('isLoggedIn', "true");
-         localStorage.setItem('token_value',this.loginForm.value.email)
-         this.router.navigate(['/cards']);
-      }
-
-    });
-
+  login() {
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';
+    this.router.navigate(['/cards']);    
   }
+
+
+  // onSubmit()
+  // {
+  //   console.log(this.loginForm.value)
+  //   this.user.forEach((key) => 
+  //   {
+  //     if(this.loginForm.value.email === key.email && this.loginForm.value.password === window.atob(key.password))
+  //     {
+  //       alert("LogIn Successful");
+  //        localStorage.setItem('isLoggedIn', "true");
+  //        localStorage.setItem('token_value',this.loginForm.value.email)
+  //        this.router.navigate(['/cards']);
+  //     }
+
+  //   });
+
+  // }
+
+
 
   showPassword(){
     if(this.isEyeClose){

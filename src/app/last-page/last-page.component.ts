@@ -17,13 +17,19 @@ export class LastPageComponent implements OnInit {
   public key_value;
   public values;
   public db_data;
-  public like_data={email:"", id:""};
+  public like_data= {email:"", id:""};
+  public like_db;
+  public like_values;
+  public like_keys;
+  public flag:boolean;
   constructor(private new_obj:DataDetailService, private SignupService:SignupService) {
+
     this.new_obj.getData().subscribe((data)=>{
       this.db_data=data;
       this.key_value=Object.keys(this.db_data);
       this.values=Object.values(this.db_data);
       this.new_details = this.values[1];
+      
     });
    }
 
@@ -35,15 +41,50 @@ export class LastPageComponent implements OnInit {
     console.log(localStorage.getItem('token_value'));
     this.like_data['email']=localStorage.getItem('token_value');
     this.like_data['id']=this.id;
+
+    this.SignupService.get_like().subscribe((data) => {
+      this.like_db = data;
+
+      console.log("like_db",this.like_db);
+      this.like_values = Object.values(this.like_db);
+      console.log(this.like_values);
+      this.like_keys = Object.keys(this.like_db);
+      console.log(this.like_values, "here");
+    });
+
   }
 
   like(){
+    this.like_values.forEach(element => {
+      if(element.email==localStorage.getItem('token_value') && element.id==this.id){
+        this.flag=true
+      }
+      else{
+        this.flag=false;
+      }
+    });
+    if(this.flag==false)
+    {
+      this.SignupService.likePost(this.like_data)
+      .subscribe((res)=>{
+        this.SignupService.get_like().subscribe((data) => {
+          this.like_db = data;
+          console.log("like_db",this.like_db);
+          this.like_values = Object.values(this.like_db);
+          console.log(this.like_values);
+          this.like_keys = Object.keys(this.like_db);
+          console.log(this.like_values, "here");
+        });
+      })
+      alert('Item added to cart');
+      this.flag=true;
+    }
+    else{
+      alert('Item already liked');
+    }
 
-    this.SignupService.likePost(this.like_data)
-    .subscribe(
-      response =>console.log("Succes",response),
-      error => console.log("Error",error)
-    );
   }
+
+
 
 }

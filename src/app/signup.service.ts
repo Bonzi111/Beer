@@ -8,6 +8,7 @@ import { Users } from './users';
   providedIn: 'root'
 })
 export class SignupService {
+  
   _url_like='https://like-6ae3a.firebaseio.com/.json'
 
 
@@ -19,6 +20,7 @@ export class SignupService {
   
 
   test_url="https://newdb-ebc15.firebaseio.com/.json";  
+
 
   constructor(private _http: HttpClient) { }
 
@@ -44,5 +46,10 @@ export class SignupService {
   {
     return this._http.put<any>(this._url_addpost,addData);
   }
+
+  deletePost(db_key)
+{
+       return this._http.delete('https://like-6ae3a.firebaseio.com/'+db_key+'/.json')
+}
 
 }

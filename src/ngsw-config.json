@@ -10,6 +10,14 @@
           "/index.html",
           "/*.css",
           "/*.js"
+        ],
+        "urls":[
+          "https://beer-1d21a.firebaseio.com/",
+          "https://beer-1d21a.firebaseio.com/cat.json",
+          "https://beer-1d21a.firebaseio.com/company_details.json",
+          "https://like-6ae3a.firebaseio.com/",
+          "https://like-6ae3a.firebaseio.com/.json"
+
         ]
       }
     }, {
@@ -20,7 +28,22 @@
         "files": [
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
-        ]
+        ],
+        "dataGroups":[
+          {
+          "name": "firebase-json",
+          "urls": [
+            "https://beer-1d21a.firebaseio.com/",
+            "https://beer-1d21a.firebaseio.com/cat.json",
+            "https://beer-1d21a.firebaseio.com/company_details.json",
+            "https://like-6ae3a.firebaseio.com/",
+            "https://like-6ae3a.firebaseio.com/.json"
+          ],
+          "cacheConfig":{
+          "strategy":"performance"
+          }
+          }
+          ]
       }
     }
   ]

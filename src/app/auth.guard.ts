@@ -15,7 +15,7 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean 
 
 verifyLogin(url) : boolean{
     if(!this.isLoggedIn()){
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login_page']);
         return false;
     }
     else if(this.isLoggedIn()){

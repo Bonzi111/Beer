@@ -7,7 +7,7 @@
                     <a class="navbar-brand" href="#"><strong><i>Beers For ALL</i></strong></a>
                 </div>
                 <div class="nav navbar-nav navbar-right" id="bs-example-navbar-collapse-1">
-                    <a href="#">Home</a>&nbsp;&nbsp;
+                    <a routerLink="/cards">Home</a>&nbsp;&nbsp;
                     <a href="#">Settings</a>&nbsp;&nbsp;
                     <a href="#">About</a>&nbsp;&nbsp;
                     <a routerLink="/form_page">Add a Beer</a>&nbsp;&nbsp;
@@ -15,7 +15,7 @@
                     <input #box (keyup.enter)="onEnter(box.value)" class="search"
                         placeholder="search on enter">&nbsp;&nbsp;
                     <a routerLink="/signup_page">Sign Up</a>&nbsp;&nbsp;
-                    <a routerLink="/login_page" (click)="logout()">Logout</a>
+                    <a routerLink="/login_page" (click)="logout()" *ngIf="authService.user | async">Logout</a>
                 </div>
             </div>
         </nav>
@@ -24,10 +24,10 @@
     <div class="hero_image">
         <img class="image_properties" src="../assets/beer_hero.jpg">
     </div>
-    <div class="row">
+    <div id="searchbox" class="row">
     <div *ngFor="let item of array">
         <div class="card column col-sm-12 col-md-4">
-            <img src={{item.image}} alt="Avatar" style="width:100%">
+            <img src={{item.image}} style="width:100%">
             <div class="container">
                 <h5><b>{{item.category}}</b></h5>
 

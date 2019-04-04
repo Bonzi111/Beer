@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
@@ -23,6 +22,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AsyncPipe } from '@angular/common';
 import { MessagingService } from './messaging.service';
 import { FooterComponent } from './footer/footer.component';
+import {AuthService} from './auth.service';
+import{AuthGuard} from './auth.guard'
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -49,7 +51,7 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [MessagingService, AsyncPipe],
+  providers: [MessagingService, AsyncPipe,AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

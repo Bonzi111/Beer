@@ -9,7 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class DataDetailService {
   private url = 'https://beer-1d21a.firebaseio.com/.json';
+
   public db: any;
+  
   getData(): Observable<any> {
     return this.http.get(this.url);
   }
